@@ -3,18 +3,18 @@ A PC side enlarge preview picture component, based on react.
 
 # How to use
 #### Install package:
-```
+```javascript
 npm install --save image-looker
 ```
 #### Import to your app:
-```
+```javascript
 import ImageLooker from 'image-looker';
 ```
 #### Use the component:
 
 使用此组件包裹住多个`<img/>` 标签或者单个`<img/>` 标签，并像下面这样给这些`<img/>` 添加属性：
 
-```
+```javascript
 
 export default class App extends React.Component {
   const imgs = [{
