@@ -10,7 +10,7 @@ import styled from "styled-components";
 
 
 const Wrapper = styled.div`
-  .case-pics-mask {
+  .pics-mask {
       position: fixed;
       top: 0;
       right: 0;
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
       justify-content: center;
   }
 
-  .case-pics-title {
+  .pics-title {
     top: 0;
     right: 0;
     font-size: 16px;
@@ -47,13 +47,13 @@ const Wrapper = styled.div`
     }
   }
 
-  .case-pics-mask img {
+  .pics-mask img {
       width: 100%;
       height: 100%;
       object-fit: contain;
   }
 
-  i.case-pics-close {
+  i.pics-close {
       cursor: pointer;
       font-size: 18px;
       font-style: normal;
@@ -206,9 +206,9 @@ export default function ImagesPreview({
       })}
       {
         previewVisible ? (
-          <div className="case-pics-mask" ref={mask}>
-            <div className="case-pics-title">
-              <i className="case-pics-close" onClick={() => handleCancel()}>
+          <div className="pics-mask" ref={mask}>
+            <div className="pics-title">
+              <i className="pics-close" onClick={() => handleCancel()}>
                 <CloseOutlined />
               </i>
             </div>
