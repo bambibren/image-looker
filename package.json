@@ -1,33 +1,48 @@
 {
   "name": "image-looker",
-  "version": "0.1.0",
   "description": "A PC side enlarge preview picture component, based on react.",
-  "main": "src/index.js",
+  "version": "0.1.4",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "antd": "^4.1.0",
-    "lodash": "^4.17.21",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-scripts": "4.0.0",
-    "styled-components": "^4.3.1"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/runtime": "7.13.8",
-    "create-react-app": "^4.0.3",
-    "typescript": "4.1.3"
+    "lodash": "^4.17.21",
+    "antd": "^4.15.3",
+    "babel-cli": "^6.26.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-scripts": "4.0.0"
+  },
+  "peerDependencies": {
+    "antd": "^4.15.3",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": "https://github.com/bambibren/image-looker#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bambibren/image-looker.git"
@@ -39,6 +54,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bambibren/image-looker/issues"
-  },
-  "homepage": "https://github.com/bambibren/image-looker#readme"
+  }
 }
