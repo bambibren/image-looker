@@ -67,8 +67,8 @@ function ImagesPreview(props, ref) {
   const handleResize = () => {
     if (currentIndexRef.current > -1) {
       const stageSize = {
-        x: mask.current?.clientWidth,
-        y: mask.current?.clientHeight,
+        x: mask.current && mask.current.clientWidth,
+        y: mask.current && mask.current.clientHeight,
       };
       const images = imagesRef.current;
       const imageSize = {
@@ -96,13 +96,13 @@ function ImagesPreview(props, ref) {
   useEffect(() => {
     currentIndexRef.current = currentIndex;
     if (images[currentIndex]) {
-      if (images[currentIndex]?.dataset?.src) {
-        setSrc(images[currentIndex].dataset?.src);
+      if (images[currentIndex] && images[currentIndex].dataset.src) {
+        setSrc(images[currentIndex].dataset.src);
       } else {
         setSrc(images[currentIndex].src);
       }
     }
-  }, [currentIndex, images[currentIndex]?.src]);
+  }, [currentIndex, images[currentIndex] && images[currentIndex].src]);
 
   useEffect(() => {
     imagesRef.current = images;
@@ -136,7 +136,7 @@ function ImagesPreview(props, ref) {
             setImages(imagesClone);
           },
           onClick: () => {
-            if (!JSON.parse(images[index].dataset?.invalid || false)) {
+            if (!JSON.parse(images[index].dataset.invalid || false)) {
               if (!images[index].loaded) setLoading(true);
               setOrigin(false);
               setCurrentIndex(index);
