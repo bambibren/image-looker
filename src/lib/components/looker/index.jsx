@@ -29,6 +29,7 @@ function ImagesPreview(props, ref) {
   const mask = useRef(null);
   const currentIndexRef = useRef(-1);
   const imagesRef = useRef(images);
+  const bodyStyleRef = useRef({});
 
   const handleCancel = () => setVisible(false);
 
@@ -86,7 +87,6 @@ function ImagesPreview(props, ref) {
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
     window.addEventListener("resize", handleResize);
-
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("resize", handleResize);
@@ -116,9 +116,13 @@ function ImagesPreview(props, ref) {
 
   useEffect(() => {
     if (previewVisible) {
+      bodyStyleRef.current.overflow = document.body.style.overflow;
+      bodyStyleRef.current.width = document.body.style.width;
       document.body.style.overflow = "hidden";
+      document.body.style.width = "calc(100% - 15px)";
     } else {
-      document.body.style.overflow = null;
+      document.body.style.overflow = bodyStyleRef.current.overflow || null;
+      document.body.style.width = bodyStyleRef.current.width || null;
     }
   }, [previewVisible]);
   return (
